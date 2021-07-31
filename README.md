@@ -1,1 +1,1 @@
-# Localize React
+# Menu bar for React
