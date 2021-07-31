@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/entropic-bond/menu-bar/compare/v1.0.0...v1.0.1) (2021-07-31)
+
+
+### Bug Fixes
+
+* should not thow on undefined item caption ([fc83eca](https://github.com/entropic-bond/menu-bar/commit/fc83eca71ee635a8312cbdabb83c26d64052c66e))
+
 # 1.0.0 (2021-07-31)
 
 
