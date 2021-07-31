@@ -27,6 +27,17 @@ describe( 'Menu Bar', ()=>{
 				</MenuBar>
 			)
 		})
+
+		it( 'should not throw on undefined caption', ()=>{
+			expect( ()=>{
+				render(
+					<MenuBar menuItems={ [{ caption: undefined }] }>
+						<div>Container 1</div>
+					</MenuBar>
+				)
+			}).not.toThrow()
+		})
+		
 	
 		it( 'should not show active container', ()=>{
 			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
