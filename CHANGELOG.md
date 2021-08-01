@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/entropic-bond/menu-bar/compare/v1.0.1...v1.0.2) (2021-08-01)
+
+
+### Bug Fixes
+
+* activeIndex to be changed programtically ([e08c69c](https://github.com/entropic-bond/menu-bar/commit/e08c69c3d622171b9a56117415eb455715447e18))
+
 ## [1.0.1](https://github.com/entropic-bond/menu-bar/compare/v1.0.0...v1.0.1) (2021-07-31)
 
 
