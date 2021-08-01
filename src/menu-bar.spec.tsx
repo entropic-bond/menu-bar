@@ -56,7 +56,7 @@ describe( 'Menu Bar', ()=>{
 	
 		it( 'should disable menu items', ()=>{
 			expect( screen.getByText( 'Item 1' ) ).toBeEnabled()
-			expect( screen.getByText( 'Item 2' ) ).toBeDisabled()
+			expect( screen.getByText( 'Item 2' ).parentElement ).toBeDisabled()
 			expect( screen.getByText( 'Item 4' ) ).toBeEnabled()
 			expect( screen.getByText( 'Item 5' ) ).toBeEnabled()
 		})
