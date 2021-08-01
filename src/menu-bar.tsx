@@ -33,6 +33,17 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		}
 	}
 
+	componentDidUpdate( prevProps: MenuBarProps ) {
+		const { menuItems, activeIndex } = this.props
+
+		if ( activeIndex !== prevProps.activeIndex ) {
+			this.setState({ 
+				selectedMenuIndex: activeIndex,
+				selectedMenu: activeIndex>=0 && menuItems[ activeIndex ]
+			})
+		}
+	}
+
 	private renderButton( item: MenuItem, index: number ) {
 		if ( !item.caption ) return
 		const { onClick } = this.props

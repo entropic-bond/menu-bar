@@ -170,6 +170,34 @@ describe( 'Menu Bar', ()=>{
 			expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
 		})
 
+		it( 'should show change activeIndex programatically', async ()=>{
+			const rerender = render(
+				<MenuBar menuItems={ menuItems } activeIndex={ 3 }>
+					<div>Container 1</div>
+					<div>Container 2</div>
+					<div>Container 3</div>
+					<div>Container 4</div>
+					<div>Container 5</div>
+				</MenuBar>
+			)
+
+			rerender.rerender(
+				<MenuBar menuItems={ menuItems } activeIndex={ 0 }>
+					<div>Container 1</div>
+					<div>Container 2</div>
+					<div>Container 3</div>
+					<div>Container 4</div>
+					<div>Container 5</div>
+				</MenuBar>
+			)
+
+			expect( screen.queryByText( 'Container 1' ) ).toBeInTheDocument()
+			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
+			expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
+			expect( screen.queryByText( 'Container 4' ) ).not.toBeInTheDocument()
+			expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
+		})
+
 	})
 	
 	describe( 'Menu item has JSX Element', ()=>{
