@@ -97,7 +97,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 						})
 					}
 				</div>
-				<div className="panel">
+				<div className="content">
 					{ children && selectedMenuIndex >=0 && selectedMenu &&
 						cloneElement( children[ selectedMenuIndex ], { 
 							key: selectedMenu.key || selectedMenuIndex 
