@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/entropic-bond/menu-bar/compare/v1.0.2...v1.0.3) (2021-08-02)
+
+
+### Bug Fixes
+
+* content panel renamed to content ([b19f0c1](https://github.com/entropic-bond/menu-bar/commit/b19f0c17c2dd4d0608eda20a8e6171b65faea05f))
+
 ## [1.0.2](https://github.com/entropic-bond/menu-bar/compare/v1.0.1...v1.0.2) (2021-08-01)
 
 
