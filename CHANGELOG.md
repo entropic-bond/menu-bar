@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/entropic-bond/menu-bar/compare/v1.0.3...v1.1.0) (2021-08-14)
+
+
+### Features
+
+* button bar position ([147e34f](https://github.com/entropic-bond/menu-bar/commit/147e34fdf1c4384d79938ee81c6057c0c3010e00))
+
 ## [1.0.3](https://github.com/entropic-bond/menu-bar/compare/v1.0.2...v1.0.3) (2021-08-02)
 
 
