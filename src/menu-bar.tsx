@@ -14,6 +14,7 @@ export interface MenuBarProps {
 	menuItems: MenuItem[]
 	onClick?: ( item: MenuItem, index: number )=>void
 	activeIndex?: number
+	position?: 'top' | 'left' | 'bottom' | 'right'
 }
 
 interface MenuBarState {
@@ -82,12 +83,29 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		}})
 	}
 
-	render() {
+	content() {
+		const { children } = this.props
 		const { selectedMenuIndex, selectedMenu } = this.state
-		const { menuItems, children, className } = this.props
+
+		return (
+			<div className="content">
+				{ children && selectedMenuIndex >=0 && selectedMenu &&
+					cloneElement( children[ selectedMenuIndex ], { 
+						key: selectedMenu.key || selectedMenuIndex 
+					}) 
+				}
+			</div>
+		)
+	}
+
+	render() {
+		const { menuItems, className, position } = this.props
+		const vertical = position === 'left' || position === 'right'
+		const contentFirst = position === 'bottom' || position === 'right'
 
 		return(
-			<div className={`menu-bar ${ className || '' }`}>
+			<div className={`menu-bar ${ className || '' } ${ vertical? 'vertical' : ''}`}>
+				{ contentFirst && this.content() }
 				<div className="button-bar">
 					{
 						menuItems?.map( ( item, index ) => {
@@ -97,13 +115,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 						})
 					}
 				</div>
-				<div className="content">
-					{ children && selectedMenuIndex >=0 && selectedMenu &&
-						cloneElement( children[ selectedMenuIndex ], { 
-							key: selectedMenu.key || selectedMenuIndex 
-						}) 
-					}
-				</div>
+				{ !contentFirst && this.content() }
 			</div>
 		)
 	}
