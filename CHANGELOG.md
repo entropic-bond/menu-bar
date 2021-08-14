@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/entropic-bond/menu-bar/compare/v1.1.0...v1.1.1) (2021-08-14)
+
+
+### Bug Fixes
+
+* npm upgrade ([fa1e1e8](https://github.com/entropic-bond/menu-bar/commit/fa1e1e81f43ac372696bc046f7d0f45cd9c3f65a))
+
 # [1.1.0](https://github.com/entropic-bond/menu-bar/compare/v1.0.3...v1.1.0) (2021-08-14)
 
 
