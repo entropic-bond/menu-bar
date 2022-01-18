@@ -1,24 +1,17 @@
 import React, { cloneElement, Component } from 'react'
+import { MenuItem, MenuItemProps } from './menu-item'
 
-export type MenuItemShowState = 'show' | 'hide' | 'disable'
-
-export interface MenuItem {
-	caption: string | JSX.Element | ( ( menuItem: MenuItem, index?: number ) => JSX.Element )
-	key?: string
-	show?: MenuItemShowState
-	action?: ( item: MenuItem )=>void
-}
+type MenuElement = MenuItem | JSX.Element
 
 export interface MenuBarProps {
 	className?: string
-	menuItems: MenuItem[]
 	onClick?: ( item: MenuItem, index: number )=>void
 	activeIndex?: number
 	position?: 'top' | 'left' | 'bottom' | 'right'
+	children: MenuElement[]
 }
 
 interface MenuBarState {
-	selectedMenu: MenuItem
 	selectedMenuIndex: number
 }
 
@@ -26,80 +19,85 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 
 	constructor( props: MenuBarProps ) {
 		super( props )
-		const { menuItems, activeIndex } = props
+		const { activeIndex } = props
 
 		this.state = { 
 			selectedMenuIndex: activeIndex,
-			selectedMenu: activeIndex>=0 && menuItems[ activeIndex ]
 		}
 	}
 
+	componentDidMount(): void {
+		const { activeIndex } = this.props
+
+		this.setState({
+			selectedMenuIndex: activeIndex,
+		})
+	}
+
 	componentDidUpdate( prevProps: MenuBarProps ) {
-		const { menuItems, activeIndex } = this.props
+		const { activeIndex } = this.props
 
 		if ( activeIndex !== prevProps.activeIndex ) {
 			this.setState({ 
 				selectedMenuIndex: activeIndex,
-				selectedMenu: activeIndex>=0 && menuItems[ activeIndex ]
 			})
 		}
 	}
 
-	private renderButton( item: MenuItem, index: number ) {
-		if ( !item.caption ) return
+	private renderButton( item: MenuElement, index: number ) {
+		const itemProps = item.props
+		if ( !itemProps.caption ) return ( itemProps.children )
+		if ( itemProps.show === 'hide' ) return
+
 		const { onClick } = this.props
 		const { selectedMenuIndex } = this.state
 
-		const disabled = item.show === 'disable'
+		const disabled = itemProps.show === 'disable'
 
 		const props = {
-			key: item.key || index,
+			key: itemProps.key || index,
 			onClick: ()=> {
 				this.setState({ 
-					selectedMenu: item,
 					selectedMenuIndex: index
 				}) 
-				onClick && onClick( item, index )
-				item.action && item.action( item )
+				onClick?.( item as MenuItem, index )
+				itemProps.action?.( item )
 			},
 			disabled,
 			className: `${ selectedMenuIndex===index? 'active' : '' } ${ disabled? 'disabled' : '' }`
 		}
 
-		if ( typeof item.caption === 'string' ) {
+		if ( typeof itemProps.caption === 'string' ) {
 			return (
 				<button {...props }>
-					<span>{ item.caption }</span>
+					<span>{ itemProps.caption }</span>
 				</button>
 			)
 		}
 	
-		if ( typeof item.caption === 'function' ) {
-			return cloneElement( item.caption( item, index ), props )
+		if ( typeof itemProps.caption === 'function' ) {
+			return cloneElement( itemProps.caption( item, index ), props )
 		}
 
-		return cloneElement( item.caption, { ...props, style: { 
+		return cloneElement( itemProps.caption, { ...props, style: { 
 			pointerEvents: disabled? 'none' : 'auto' 
 		}})
 	}
 
 	content() {
 		const { children } = this.props
-		const { selectedMenuIndex, selectedMenu } = this.state
+		const { selectedMenuIndex } = this.state
+		const child = children[ selectedMenuIndex ] as MenuItem
 
 		return (
 			<div className="content">
-				{ children && selectedMenuIndex >=0 && selectedMenu &&
-					cloneElement( children[ selectedMenuIndex ], { 
-						key: selectedMenu.key || selectedMenuIndex 
-					}) 
-				}
+				{ child?.props.children }
 			</div>
 		)
 	}
 
 	render() {
-		const { menuItems, className, position } = this.props
+		const { children, className, position } = this.props
 		const vertical = position === 'left' || position === 'right'
 		const contentFirst = position === 'bottom' || position === 'right'
 
@@ -108,11 +106,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 				{ contentFirst && this.content() }
 				<div className="button-bar">
 					{
-						menuItems?.map( ( item, index ) => {
-							if ( item.show !== 'hide' ) {
-								return this.renderButton( item, index )	
-							}
-						})
+						children?.map( ( item, index ) => this.renderButton( item, index ) )
 					}
 				</div>
 				{ !contentFirst && this.content() }
