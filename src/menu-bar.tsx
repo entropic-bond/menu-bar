@@ -1,5 +1,5 @@
 import React, { cloneElement, Component } from 'react'
-import { MenuItem, MenuItemProps } from './menu-item'
+import { MenuItem } from './menu-item'
 
 type MenuElement = MenuItem | JSX.Element
 
@@ -46,7 +46,8 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 
 	private renderButton( item: MenuElement, index: number ) {
 		const itemProps = item.props
-		if ( !itemProps.caption ) return ( itemProps.children )
+		if ( !( item['type'] === MenuItem ) ) return ( item )
+		if ( !itemProps.caption ) return ( <button className="undefined-caption"/> )
 		if ( itemProps.show === 'hide' ) return
 
 		const { onClick } = this.props

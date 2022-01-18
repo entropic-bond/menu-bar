@@ -1,4 +1,4 @@
-import React, { Component, PropsWithChildren } from 'react'
+import { Component, PropsWithChildren } from 'react'
 
 export type MenuItemShowState = 'show' | 'hide' | 'disable'
 

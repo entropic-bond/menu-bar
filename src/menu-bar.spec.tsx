@@ -37,6 +37,10 @@ describe( 'Menu Bar', ()=>{
 					<MenuItem caption="Item 5" action={ menuAction[4] }>
 						Container 5
 					</MenuItem>
+
+					<MenuItem caption={ undefined }>
+						Nothing
+					</MenuItem>
 				</MenuBar>
 			)
 		})
@@ -62,10 +66,10 @@ describe( 'Menu Bar', ()=>{
 		})
 		
 		it( 'should show menu items', ()=>{
-			expect( screen.getByText( 'Item 1' ) ).toBeInTheDocument()
-			expect( screen.getByText( 'Item 2' ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'button', { name: 'Item 1' } ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'button', { name: 'Item 2' } ) ).toBeInTheDocument()
 			expect( screen.getByText( 'Decorator 4' ) ).toBeInTheDocument()
-			expect( screen.getByText( 'Item 5' ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'button', { name: 'Item 5' } ) ).toBeInTheDocument()
 		})
 	
 		it( 'should disable menu items', ()=>{
@@ -82,7 +86,7 @@ describe( 'Menu Bar', ()=>{
 			expect( screen.getByText( 'Decorator 4' ) ).toBeVisible()
 			expect( screen.getByText( 'Item 5' ) ).toBeVisible()
 		})
-			
+		
 	})
 
 	describe( 'Menu items actions', ()=>{
@@ -310,12 +314,12 @@ describe( 'Menu Bar', ()=>{
 		})
 
 		it( 'should show container on click', ()=>{
-			userEvent.click( screen.getByText( 'Decorator 4' ) )
+			userEvent.click( screen.getByText( 'Item 5 as menu button' ) )
 
 			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
-			expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
+			expect( screen.queryByText( 'Container 5' ) ).toBeInTheDocument()
 		})
 
 		it( 'should add css class _active_ on click', ()=>{
