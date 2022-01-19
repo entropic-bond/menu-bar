@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/entropic-bond/menu-bar/compare/v1.1.1...v2.0.0) (2022-01-19)
+
+
+* Try again a ([a591f46](https://github.com/entropic-bond/menu-bar/commit/a591f46dc3e2807598c65ad0bb24383e15e6d204))
+
+
+### BREAKING CHANGES
+
+* MenuItem
+
 ## [1.1.1](https://github.com/entropic-bond/menu-bar/compare/v1.1.0...v1.1.1) (2021-08-14)
 
 
