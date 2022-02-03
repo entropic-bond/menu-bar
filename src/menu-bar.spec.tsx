@@ -351,6 +351,4 @@ describe( 'Menu Bar', ()=>{
 		})
 				
 	})
-
-
 })

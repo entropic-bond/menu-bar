@@ -46,8 +46,8 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 
 	private renderButton( item: MenuElement, index: number ) {
 		const itemProps = item.props
-		if ( !( item['type'] === MenuItem ) ) return ( item )
-		if ( !itemProps.caption ) return ( <button className="undefined-caption"/> )
+		if ( !( item['type'] === MenuItem ) ) return ( cloneElement( item as JSX.Element, {...itemProps, key: index } ))
+		if ( !itemProps.caption ) return ( <button key={ index } className="undefined-caption"/> )
 		if ( itemProps.show === 'hide' ) return
 
 		const { onClick } = this.props
@@ -91,7 +91,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		const child = children[ selectedMenuIndex ] as MenuItem
 
 		return (
-			<div className="content">
+			<div className="content" key={ Date.now() * -1 }>
 				{ child?.props.children }
 			</div>
 		)
