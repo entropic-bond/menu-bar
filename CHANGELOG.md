@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/entropic-bond/menu-bar/compare/v2.0.0...v2.0.1) (2022-02-03)
+
+
+### Bug Fixes
+
+* html element as MenuItem not have key prop ([00258ae](https://github.com/entropic-bond/menu-bar/commit/00258aeb3fd506fb78b0d80d474338086f76424a))
+
 # [2.0.0](https://github.com/entropic-bond/menu-bar/compare/v1.1.1...v2.0.0) (2022-01-19)
 
 
