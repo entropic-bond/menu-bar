@@ -117,8 +117,8 @@ describe( 'Menu Bar', ()=>{
 			)
 		})
 
-		it( 'should call menu item action on click', ()=>{
-			userEvent.click( screen.getByText( 'Item 1' ) )
+		it( 'should call menu item action on click', async ()=>{
+			await userEvent.click( screen.getByText( 'Item 1' ) )
 			
 			expect( menuAction[ 0 ] ).toHaveBeenCalled()
 			expect( menuAction[ 1 ] ).not.toHaveBeenCalled()
@@ -126,8 +126,8 @@ describe( 'Menu Bar', ()=>{
 			expect( menuAction[ 4 ] ).not.toHaveBeenCalled()
 		})
 
-		it( 'should show container on click', ()=>{
-			userEvent.click( screen.getByText( 'Decorator 4' ) )
+		it( 'should show container on click', async ()=>{
+			await userEvent.click( screen.getByText( 'Decorator 4' ) )
 
 			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
@@ -135,24 +135,24 @@ describe( 'Menu Bar', ()=>{
 			expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
 		})
 
-		it( 'should not show on click on disabled item', ()=>{
-			userEvent.click( screen.getByText( 'Item 2' ) )
+		it( 'should not show on click on disabled item', async ()=>{
+			await userEvent.click( screen.getByText( 'Item 2' ) )
 
 			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
 		})
 		
-		it( 'should notify on click', ()=>{
-			userEvent.click( screen.getByText( 'Item 1' ) )
+		it( 'should notify on click', async ()=>{
+			await userEvent.click( screen.getByText( 'Item 1' ) )
 
 			expect( menuItemClicked ).toHaveBeenCalledWith( expect.objectContaining({
 				props: expect.objectContaining({ caption: 'Item 1' })
 			}), 0 )
 		})
 		
-		it( 'should not notify on click on disabled item', ()=>{
-			userEvent.click( screen.getByText( 'Item 2' ) )
+		it( 'should not notify on click on disabled item', async ()=>{
+			await userEvent.click( screen.getByText( 'Item 2' ) )
 
 			expect( menuItemClicked ).not.toHaveBeenCalled()
 		})
@@ -313,8 +313,8 @@ describe( 'Menu Bar', ()=>{
 			expect( screen.queryByText( 'Container', { exact: false } ) ).not.toBeInTheDocument()
 		})
 
-		it( 'should show container on click', ()=>{
-			userEvent.click( screen.getByText( 'Item 5 as menu button' ) )
+		it( 'should show container on click', async ()=>{
+			await userEvent.click( screen.getByText( 'Item 5 as menu button' ) )
 
 			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
 			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
@@ -322,8 +322,8 @@ describe( 'Menu Bar', ()=>{
 			expect( screen.queryByText( 'Container 5' ) ).toBeInTheDocument()
 		})
 
-		it( 'should add css class _active_ on click', ()=>{
-			userEvent.click( screen.getByText( 'Decorator 4' ) )
+		it( 'should add css class _active_ on click', async ()=>{
+			await userEvent.click( screen.getByText( 'Decorator 4' ) )
 
 			expect(	screen.getByText( 'Item 1 as menu button' ) ).not.toHaveClass( 'active' )
 			expect(	screen.getByText( 'Item 2 as menu button' ) ).not.toHaveClass( 'active' )
@@ -338,16 +338,20 @@ describe( 'Menu Bar', ()=>{
 			expect(	screen.getByText( 'Item 5 as menu button' ) ).not.toHaveClass( 'disabled' )
 		})
 
-		it( 'should not allow to click on disabled menu item', ()=>{
-			expect( 
-				()=>userEvent.click( screen.getByText( 'Item 2 as menu button' ) ) 
-			).toThrow()
+		it( 'should not allow to click on disabled menu item', done =>{
+			userEvent.click( screen.getByText( 'Item 2 as menu button' ) ).catch( ()=>{
 
-			expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
-			expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
-			expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
-			expect( screen.queryByText( 'Container 4' ) ).not.toBeInTheDocument()
-			expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
+				// expect(
+				// 	()=> await userEvent.click( screen.getByText( 'Item 2 as menu button' ) ) 
+				// ).toThrow()
+
+				expect( screen.queryByText( 'Container 1' ) ).not.toBeInTheDocument()
+				expect( screen.queryByText( 'Container 2' ) ).not.toBeInTheDocument()
+				expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
+				expect( screen.queryByText( 'Container 4' ) ).not.toBeInTheDocument()
+				expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
+				done()
+			})
 		})
 				
 	})
