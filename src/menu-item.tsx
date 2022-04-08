@@ -1,3 +1,4 @@
+import React from 'react'
 import { Component, PropsWithChildren } from 'react'
 
 export type MenuItemShowState = 'show' | 'hide' | 'disable'
@@ -17,7 +18,9 @@ export class MenuItem extends Component<MenuItemProps, MenuItemState> {
 		const { children } = this.props
 
 		return (
-			{ children }
+			<>
+				{ children }
+			</>
 		)		
 	}
 }
