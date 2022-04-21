@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/entropic-bond/menu-bar/compare/v2.0.2...v2.0.3) (2022-04-08)
+
+
+### Bug Fixes
+
+* re upgrade to react 18 ([a0bf2fb](https://github.com/entropic-bond/menu-bar/commit/a0bf2fb2a2c503d2f4dcfd7fd2c2f3c112e6d22a))
+
 ## [2.0.2](https://github.com/entropic-bond/menu-bar/compare/v2.0.1...v2.0.2) (2022-04-07)
 
 
