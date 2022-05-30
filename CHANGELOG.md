@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/entropic-bond/menu-bar/compare/v2.0.4...v2.0.5) (2022-05-30)
+
+
+### Bug Fixes
+
+* jest@28 ES6 ([3bf4dfd](https://github.com/entropic-bond/menu-bar/commit/3bf4dfd39a6765b69bddbf456b27729a2c36ccdc))
+
 ## [2.0.4](https://github.com/entropic-bond/menu-bar/compare/v2.0.3...v2.0.4) (2022-04-21)
 
 
