@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/entropic-bond/menu-bar/compare/v2.0.6...v2.0.7) (2023-03-20)
+
+
+### Bug Fixes
+
+* deal with iterated MenuBar children ([672f279](https://github.com/entropic-bond/menu-bar/commit/672f27949d47a7a28b9141f677edf5d0be1e8e81))
+
 ## [2.0.6](https://github.com/entropic-bond/menu-bar/compare/v2.0.5...v2.0.6) (2023-01-18)
 
 
