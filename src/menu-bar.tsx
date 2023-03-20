@@ -56,7 +56,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		const disabled = itemProps.show === 'disable'
 
 		const props = {
-			key: itemProps.key || index,
+			key: ( item instanceof MenuItem? itemProps?.key : item?.key ) || index,
 			onClick: ()=> {
 				this.setState({ 
 					selectedMenuIndex: index
