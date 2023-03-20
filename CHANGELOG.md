@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/entropic-bond/menu-bar/compare/v2.0.5...v2.0.6) (2023-01-18)
+
+
+### Bug Fixes
+
+* npm update ([7d121f2](https://github.com/entropic-bond/menu-bar/commit/7d121f2e31a88415fe29469896c567042a643f1c))
+
 ## [2.0.5](https://github.com/entropic-bond/menu-bar/compare/v2.0.4...v2.0.5) (2022-05-30)
 
 
