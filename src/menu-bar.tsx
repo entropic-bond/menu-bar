@@ -65,7 +65,8 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 				itemProps.action?.( item )
 			},
 			disabled,
-			className: `${ selectedMenuIndex===index? 'active' : '' } ${ disabled? 'disabled' : '' }`
+			className: `${ selectedMenuIndex===index? 'active' : '' } ${ disabled? 'disabled' : '' }`,
+			role: 'menuitem'
 		}
 
 		if ( typeof itemProps.caption === 'string' ) {
@@ -105,7 +106,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		return(
 			<div className={`menu-bar ${ className || '' } ${ vertical? 'vertical' : ''}`}>
 				{ contentFirst && this.content() }
-				<div className="button-bar">
+				<div className="button-bar" role="menubar">
 					{
 						children?.map( ( item, index ) => this.renderButton( item, index ) )
 					}
