@@ -66,10 +66,10 @@ describe( 'Menu Bar', ()=>{
 		})
 		
 		it( 'should show menu items', ()=>{
-			expect( screen.getByRole( 'button', { name: 'Item 1' } ) ).toBeInTheDocument()
-			expect( screen.getByRole( 'button', { name: 'Item 2' } ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'menuitem', { name: 'Item 1' } ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'menuitem', { name: 'Item 2' } ) ).toBeInTheDocument()
 			expect( screen.getByText( 'Decorator 4' ) ).toBeInTheDocument()
-			expect( screen.getByRole( 'button', { name: 'Item 5' } ) ).toBeInTheDocument()
+			expect( screen.getByRole( 'menuitem', { name: 'Item 5' } ) ).toBeInTheDocument()
 		})
 	
 		it( 'should disable menu items', ()=>{
