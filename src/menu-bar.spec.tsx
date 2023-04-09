@@ -38,7 +38,7 @@ describe( 'Menu Bar', ()=>{
 						Container 5
 					</MenuItem>
 
-					<MenuItem caption={ undefined }>
+					<MenuItem caption={ undefined! }>
 						Nothing
 					</MenuItem>
 				</MenuBar>
@@ -49,7 +49,7 @@ describe( 'Menu Bar', ()=>{
 			expect( ()=>{
 				render(
 					<MenuBar >
-						<MenuItem caption={ undefined }></MenuItem>
+						<MenuItem caption={ undefined! }></MenuItem>
 						<div>Container 1</div>
 					</MenuBar>
 				)

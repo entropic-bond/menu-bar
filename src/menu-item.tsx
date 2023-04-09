@@ -14,7 +14,7 @@ interface MenuItemState {}
 
 export class MenuItem extends Component<MenuItemProps, MenuItemState> {
 	
-	render() {
+	override render() {
 		const { children } = this.props
 
 		return (

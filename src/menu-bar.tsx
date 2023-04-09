@@ -12,7 +12,7 @@ export interface MenuBarProps {
 }
 
 interface MenuBarState {
-	selectedMenuIndex: number
+	selectedMenuIndex: number | undefined
 }
 
 export class MenuBar extends Component<MenuBarProps, MenuBarState> {
@@ -26,7 +26,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		}
 	}
 
-	componentDidMount(): void {
+	override componentDidMount(): void {
 		const { activeIndex } = this.props
 
 		this.setState({
@@ -34,7 +34,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		})
 	}
 
-	componentDidUpdate( prevProps: MenuBarProps ) {
+	override componentDidUpdate( prevProps: MenuBarProps ) {
 		const { activeIndex } = this.props
 
 		if ( activeIndex !== prevProps.activeIndex ) {
@@ -89,7 +89,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 	content() {
 		const { children } = this.props
 		const { selectedMenuIndex } = this.state
-		const child = children[ selectedMenuIndex ] as MenuItem
+		const child = selectedMenuIndex === undefined? undefined : children[ selectedMenuIndex! ] as MenuItem
 
 		return (
 			<div className="content" key={ Date.now() * -1 }>
@@ -98,7 +98,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		)
 	}
 
-	render() {
+	override render() {
 		const { children, className, position } = this.props
 		const vertical = position === 'left' || position === 'right'
 		const contentFirst = position === 'bottom' || position === 'right'
