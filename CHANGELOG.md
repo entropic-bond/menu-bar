@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/entropic-bond/menu-bar/compare/v2.0.8...v2.1.0) (2023-04-09)
+
+
+### Features
+
+* strictNullCheck ([3ac7061](https://github.com/entropic-bond/menu-bar/commit/3ac7061c57bba0295638b362c7dc995c967fe592))
+
 ## [2.0.8](https://github.com/entropic-bond/menu-bar/compare/v2.0.7...v2.0.8) (2023-03-30)
 
 
