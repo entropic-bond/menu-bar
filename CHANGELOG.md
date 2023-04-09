@@ -1,3 +1,11 @@
+## [2.0.8](https://github.com/entropic-bond/menu-bar/compare/v2.0.7...v2.0.8) (2023-03-30)
+
+
+### Bug Fixes
+
+* add roles for menubar and menuitem ([d771966](https://github.com/entropic-bond/menu-bar/commit/d771966890834ac8b35263b83595698f555b7066))
+* tests to find role menuitem ([43df512](https://github.com/entropic-bond/menu-bar/commit/43df512a5cc931cadb75cf5cff48c79ba9ae05d5))
+
 ## [2.0.7](https://github.com/entropic-bond/menu-bar/compare/v2.0.6...v2.0.7) (2023-03-20)
 
 
