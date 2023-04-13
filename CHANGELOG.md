@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/entropic-bond/menu-bar/compare/v2.1.0...v2.1.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* className prop for MenuItem ([efaaadb](https://github.com/entropic-bond/menu-bar/commit/efaaadbf6e93722d5634ec045620ff265d3fe4a7))
+
 # [2.1.0](https://github.com/entropic-bond/menu-bar/compare/v2.0.8...v2.1.0) (2023-04-09)
 
 
