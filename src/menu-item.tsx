@@ -8,6 +8,7 @@ export type MenuItemProps = PropsWithChildren<{
 	key?: string
 	show?: MenuItemShowState
 	action?: ( item: MenuItem )=>void
+	className?: string 
 }>
 
 interface MenuItemState {}
