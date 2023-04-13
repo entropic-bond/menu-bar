@@ -65,7 +65,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 				itemProps.action?.( item )
 			},
 			disabled,
-			className: `${ selectedMenuIndex===index? 'active' : '' } ${ disabled? 'disabled' : '' }`,
+			className: `${ selectedMenuIndex===index? 'active' : '' } ${ disabled? 'disabled' : '' } ${ itemProps.className || '' }`,
 			role: 'menuitem'
 		}
 
