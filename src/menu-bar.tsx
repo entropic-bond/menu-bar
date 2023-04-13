@@ -71,7 +71,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 
 		if ( typeof itemProps.caption === 'string' ) {
 			return (
-				<button {...props }>
+				<button { ...props }>
 					<span>{ itemProps.caption }</span>
 				</button>
 			)
