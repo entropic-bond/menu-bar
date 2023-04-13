@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/entropic-bond/menu-bar/compare/v2.1.1...v2.1.2) (2023-04-13)
+
+
+### Bug Fixes
+
+* className for menu item 2 ([9938cd2](https://github.com/entropic-bond/menu-bar/commit/9938cd237fab30d5ddd0b5e6627c56dc6015a4a1))
+
 ## [2.1.1](https://github.com/entropic-bond/menu-bar/compare/v2.1.0...v2.1.1) (2023-04-13)
 
 
