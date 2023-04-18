@@ -104,7 +104,7 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		const contentFirst = position === 'bottom' || position === 'right'
 
 		return(
-			<div className={`menu-bar ${ className || '' } ${ vertical? 'vertical' : ''}`}>
+			<div className={`menu-bar ${ className || '' } ${ vertical? 'vertical' : ''}`} role="menu">
 				{ contentFirst && this.content() }
 				<div className="button-bar" role="menubar">
 					{
