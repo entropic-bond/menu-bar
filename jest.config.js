@@ -18,7 +18,7 @@ module.exports = {
 	collectCoverage: true,
 	coverageDirectory: "coverage",
 	collectCoverageFrom: ['src/**/*.ts','!src/*/*.spec.ts'],
-	coverageReporters: ["lcov"],				
+	coverageReporters: ["lcov"],					// cSpell: disable-line	
 	testEnvironment: 'jsdom',
 	setupFilesAfterEnv: [
 		"<rootDir>/jest-addons/setup-tests.ts"
