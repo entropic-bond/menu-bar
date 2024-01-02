@@ -19,9 +19,9 @@ export class MenuItem extends Component<MenuItemProps, MenuItemState> {
 		const { children } = this.props
 
 		return (
-			<>
+			<div key={ this.props.key }>
 				{ children }
-			</>
+			</div>
 		)		
 	}
 }
