@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/entropic-bond/menu-bar/compare/v2.1.2...v2.1.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* set role menu ([f4b32e2](https://github.com/entropic-bond/menu-bar/commit/f4b32e2b85f99aad9c95c62930704d1457b13c96))
+
 ## [2.1.2](https://github.com/entropic-bond/menu-bar/compare/v2.1.1...v2.1.2) (2023-04-13)
 
 
