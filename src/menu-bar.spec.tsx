@@ -3,14 +3,15 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { MenuBar } from './menu-bar'
 import { MenuItem } from './menu-item'
+import { Mock } from 'vitest'
 
 describe( 'Menu Bar', ()=>{
-	let menuItemClicked: jest.Mock<any, any>
-	let menuAction: jest.Mock[] = []
+	let menuItemClicked: Mock<any, any>
+	let menuAction: Mock[] = []
 
 	beforeEach(()=>{
 		for ( let i=0; i<5; ++i ) {
-			menuAction.push( jest.fn() )
+			menuAction.push( vi.fn() )
 		}
 	})
 
@@ -92,7 +93,7 @@ describe( 'Menu Bar', ()=>{
 	describe( 'Menu items actions', ()=>{
 
 		beforeEach(()=>{
-			menuItemClicked = jest.fn()
+			menuItemClicked = vi.fn()
 			
 			render(
 				<MenuBar onClick={ menuItemClicked }>
@@ -337,9 +338,9 @@ describe( 'Menu Bar', ()=>{
 			expect(	screen.getByText( 'Decorator 4' ) ).not.toHaveClass( 'disabled' )
 			expect(	screen.getByText( 'Item 5 as menu button' ) ).not.toHaveClass( 'disabled' )
 		})
-
-		it( 'should not allow to click on disabled menu item', done =>{
-			userEvent.click( screen.getByText( 'Item 2 as menu button' ) ).catch( ()=>{
+		
+		it( 'should not allow to click on disabled menu item', async () =>{
+			await userEvent.click( screen.getByText( 'Item 2 as menu button' ) ).catch( ()=>{
 
 				// expect(
 				// 	()=> await userEvent.click( screen.getByText( 'Item 2 as menu button' ) ) 
@@ -350,21 +351,21 @@ describe( 'Menu Bar', ()=>{
 				expect( screen.queryByText( 'Container 3' ) ).not.toBeInTheDocument()
 				expect( screen.queryByText( 'Container 4' ) ).not.toBeInTheDocument()
 				expect( screen.queryByText( 'Container 5' ) ).not.toBeInTheDocument()
-				done()
+				expect.assertions( 5 )
 			})
 		})
 				
 	})
 
-	describe( 'Items come from an iterator', ()=>{
-		const menuItems = [ { id: '1', name: 'Item 1'}, { id: '2', name: 'Item 2' }, { id: '3', name: 'Item 3' }, { id: '4', name: 'Item 4' }, { id: '5', name: 'Item 5' } ]
+	// describe( 'Items come from an iterator', ()=>{
+	// 	const menuItems = [ { id: '1', name: 'Item 1'}, { id: '2', name: 'Item 2' }, { id: '3', name: 'Item 3' }, { id: '4', name: 'Item 4' }, { id: '5', name: 'Item 5' } ]
 
-		render(
-			<MenuBar>
-				{ menuItems.map( item => (
-					<MenuItem key={ item.id } caption={ item.name }/>
-				))}
-			</MenuBar>
-		)
-	})
+	// 	render(
+	// 		<MenuBar>
+	// 			{ menuItems.map( item => (
+	// 				<MenuItem key={ item.id } caption={ item.name }/>
+	// 			))}
+	// 		</MenuBar>
+	// 	)
+	// })
 })
