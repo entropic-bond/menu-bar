@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/entropic-bond/menu-bar/compare/v2.1.3...v2.1.4) (2024-01-02)
+
+
+### Bug Fixes
+
+* use key in menuitem ([2473636](https://github.com/entropic-bond/menu-bar/commit/247363624592a89dbfe6fff99958246ca3b68785))
+
 ## [2.1.3](https://github.com/entropic-bond/menu-bar/compare/v2.1.2...v2.1.3) (2023-04-18)
 
 
