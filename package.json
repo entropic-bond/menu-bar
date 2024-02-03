@@ -1,5 +1,6 @@
 {
   "name": "@entropic-bond/menu-bar",
+  "type": "module",
   "version": "2.1.4",
   "publishConfig": {
     "access": "public",
