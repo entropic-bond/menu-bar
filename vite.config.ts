@@ -16,7 +16,8 @@ export default defineConfig({
 			name: 'entropic-bond-menu-bar',
 			fileName: 'entropic-bond-menu-bar'
 		},
-		"outDir": "lib",
+		sourcemap: true,
+		outDir: 'lib',
 	},
 	plugins: [
 		dts()
