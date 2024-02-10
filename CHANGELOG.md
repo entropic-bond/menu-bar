@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/entropic-bond/menu-bar/compare/v2.1.4...v2.2.0) (2024-02-08)
+
+
+### Features
+
+* esm and cjs ([879252f](https://github.com/entropic-bond/menu-bar/commit/879252ff8cad8936800efb483071631ed4c8c874))
+
 ## [2.1.4](https://github.com/entropic-bond/menu-bar/compare/v2.1.3...v2.1.4) (2024-01-02)
 
 
