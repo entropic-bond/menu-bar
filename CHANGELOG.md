@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/entropic-bond/menu-bar/compare/v2.2.0...v2.2.1) (2024-02-10)
+
+
+### Bug Fixes
+
+* sourcemap ([07c4d55](https://github.com/entropic-bond/menu-bar/commit/07c4d55a7a13d5e3968a8632f8f3967b34ad00f5))
+
 # [2.2.0](https://github.com/entropic-bond/menu-bar/compare/v2.1.4...v2.2.0) (2024-02-08)
 
 
