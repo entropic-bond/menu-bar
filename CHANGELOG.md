@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/entropic-bond/menu-bar/compare/v2.2.1...v2.2.2) (2025-03-05)
+
+
+### Bug Fixes
+
+* upgrade entropic-bond ([132d215](https://github.com/entropic-bond/menu-bar/commit/132d2155fe005e3004aa90bf18275f5ac18a2d8a))
+
 ## [2.2.1](https://github.com/entropic-bond/menu-bar/compare/v2.2.0...v2.2.1) (2024-02-10)
 
 
