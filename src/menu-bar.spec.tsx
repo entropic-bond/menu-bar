@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import React from 'react'
 import { MenuBar } from './menu-bar'
 import { MenuItem } from './menu-item'
 import { Mock } from 'vitest'
 
 describe( 'Menu Bar', ()=>{
-	let menuItemClicked: Mock<any, any>
+	let menuItemClicked: Mock
 	let menuAction: Mock[] = []
 
 	beforeEach(()=>{

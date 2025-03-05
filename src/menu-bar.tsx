@@ -1,4 +1,4 @@
-import React, { cloneElement, Component } from 'react'
+import { cloneElement, Component, JSX } from 'react'
 import { MenuItem } from './menu-item'
 
 type MenuElement = MenuItem | JSX.Element
@@ -70,8 +70,9 @@ export class MenuBar extends Component<MenuBarProps, MenuBarState> {
 		}
 
 		if ( typeof itemProps.caption === 'string' ) {
+			const {	key, ...rest }	=props
 			return (
-				<button { ...props }>
+				<button key={ key } { ...rest }>
 					<span>{ itemProps.caption }</span>
 				</button>
 			)
