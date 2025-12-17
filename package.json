@@ -1,7 +1,7 @@
 {
   "name": "@entropic-bond/menu-bar",
   "type": "module",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Menu bar for React",
   "main": "lib/entropic-bond-menu-bar.umd.cjs",
   "module": "lib/entropic-bond-menu-bar.js",
